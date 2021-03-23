@@ -10,6 +10,9 @@ namespace Fechas
     {
         static void Main(string[] args)
         {
+            Actividades A = new Actividades();
+            A.A22();
+            Console.ReadKey();
         }
     }
 }
