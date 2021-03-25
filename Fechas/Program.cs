@@ -13,7 +13,8 @@ namespace Fechas
             Actividades A = new Actividades();
             //A.A21();
             //A.A22();
-            A.A23();
+            //A.A23();
+            A.A24();
             Console.ReadKey();
         }
     }
