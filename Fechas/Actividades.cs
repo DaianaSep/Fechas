@@ -148,5 +148,49 @@ namespace Fechas
                 Console.WriteLine($"{Ingreso} no es un año bisiesto");
             }
         }
+
+        public void A29()
+        {
+            bool IngresoValido = false;
+
+            do
+            {
+                Console.WriteLine("Ingrese una fecha: ");
+                string Ingreso = Console.ReadLine();
+
+                if (!DateTime.TryParse(Ingreso, out DateTime FechaValida))
+                {
+                    Console.WriteLine("No ingresó una fecha en el formato correcto");
+                    continue;
+                }
+                IngresoValido = true;
+
+                var FechaDia = FechaValida.AddDays(-FechaValida.Day+1);
+                var FechaFinal = FechaDia.AddMonths(-1);
+                Console.WriteLine($"Fecha al 1 del mes anterior: {FechaFinal.ToString("dd/MM/yyyy")}");
+
+            } while (!IngresoValido);
+        }
+
+        public void A30()
+        {
+            bool IngresoValido = false;
+
+            do
+            {
+                Console.WriteLine("Ingrese una fecha: ");
+                string Ingreso = Console.ReadLine();
+
+                if (!DateTime.TryParseExact(Ingreso, "dd/MM/yyyy HH:mm", new CultureInfo("es-ES"), DateTimeStyles.None, out DateTime FechaValida))
+                {
+                    Console.WriteLine("No ingresó una fecha en el formato correcto");
+                    continue;
+                }
+                IngresoValido = true;
+
+                Console.WriteLine($"Son las: {FechaValida.ToString("HH:mm")}");
+
+            } while (!IngresoValido);
+        }
     }
 }
